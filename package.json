@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/hungduongg2909/NodeJsLab#readme",
   "dependencies": {
+    "express": "^4.19.2",
     "gitignore": "^0.7.0",
     "nodemon": "^3.1.4"
   }
