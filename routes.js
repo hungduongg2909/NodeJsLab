@@ -38,3 +38,4 @@ const requestHandler = (req, res) => {
 };
 
 exports.handler = requestHandler;
+exports.test = 'Some text code';
