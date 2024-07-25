@@ -1,8 +1,12 @@
-const http = require('http');
+const express = require('express');
+const app = express();
 
-const routes = require('./routes');
+app.use('/users', (req, res, next) => {
+    res.send('<p>The Middleware that handles just /users</p>');
+});
 
-const server = http.createServer(routes.handler);
-console.log(routes.test);
+app.use('/', (req, res, next) => {
+    res.send('<p>The Middleware that handles just /</p>');
+});
 
-server.listen(3000);
+app.listen(3000);
