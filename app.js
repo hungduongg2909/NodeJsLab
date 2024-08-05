@@ -1,12 +1,17 @@
+const path = require('path');
+
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
 
-app.use('/users', (req, res, next) => {
-    res.send('<p>The Middleware that handles just /users</p>');
-});
+const usersRoutes = require('./routes/users');
+const rootRoutes = require('./routes/root');
 
-app.use('/', (req, res, next) => {
-    res.send('<p>The Middleware that handles just /</p>');
-});
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(usersRoutes);
+app.use(rootRoutes);
 
 app.listen(3000);
